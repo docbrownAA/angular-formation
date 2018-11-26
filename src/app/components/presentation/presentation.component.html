@@ -1,0 +1,68 @@
+<header>
+  <h2>Présentation</h2>
+</header>
+
+<h3>Affichage</h3>
+  <article class="row mb-3">
+    <div class="col">
+      <p>1+2= {{1 + 2}}</p>
+    </div>
+
+    <div class="col">
+      <p> Bonjour {{name}} </p>
+    </div>
+    <div class="col">
+      <p> {{product.name}} @ {{product.price}} &euro;</p>
+    </div>
+  </article>
+  <article>
+    <div class="row">
+      <div class="col">
+        <!--<p> {{html}}</p>-->
+        <p [innerHtml]="html"></p>
+      </div>
+    </div>
+
+    <div class="w-100">
+      <div class="col">
+        <p>Uppercase: {{uppercase(product.name)}}</p>
+      </div>
+    </div>
+  </article>
+  <h3>Events</h3>
+  <article class="row">
+
+    <div class="col">
+      <button class="btn btn-outline-primary" (click)="clicked($event)">Cliquez ici</button>
+    </div>
+    <div class="col">
+      <a href="#" class="btn-outline-primary" (click)="confirmation($event)">Etes vous sûr ?</a>
+    </div>
+  </article>
+  <h3 class="mt-3">Two way data binding</h3>
+<p class="small"> ngModel = Banana in box [()]</p>
+
+<div class="input-group">
+  <input type="text" placeholder="Entrer votre message" class="form-control" [(ngModel)]="message" />
+  <div class="input-group-append">
+    <button class="btn-outline-primary" (click)="showMessage()">
+      voir message
+    </button>
+  </div>
+</div>
+<p class="form-control-plaintext">{{message}}</p>
+
+<h3>Variables Templates</h3>
+<p class="small">équivalent JS #nomdevariable = document.querySelector() (document.getElementById())</p>
+<article class="row">
+  <div class="input-group">
+    <input type="text" placeholder="Entrez votre message" class="form-control" #input (keyup.enter)="0" (focus)="focusBlur('focus')" (blur)="focusBlur('blur')" />
+    <p class="form-control-plaintext">{{input.value}}</p>
+  </div>
+
+</article>
+<h3>Tableaux</h3>
+<hr />
+<ul class="list-unstyled">
+  <li *ngFor="let chaine of users; index as i">{{i+1}} - {{chaine}}</li>
+</ul>

@@ -1,0 +1,22 @@
+<h3>Tâches</h3>
+<div class="row">
+  <div class="col-4">
+    <div class="list-group">
+      <button class="list-group-item list-group-item-action" *ngFor="let tache of tasks; index as i"
+              (click)="removeTask(i)">
+        {{tache}}
+      </button>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="input-group">
+      <input type="text" placeholder="Entrez votre message" class="form-control" [(ngModel)]="newTask"
+             (keyup.enter)="addTask()"/>
+      <div class="input-group-append">
+        <button class="btn-outline-primary" (click)="addTask()">
+          Ajouter tâche
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
