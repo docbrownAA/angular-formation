@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: 'home', component: AppComponent},
   { path: 'exercice1', component: Exo1Component},
   { path: 'plan', component: PlanComponent},
-  { path: 'presentation', component: PresentationComponent}
+  { path: 'presentation', component: PresentationComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // full => recherche sur toute l'url, prefix: recherche suyr le début de l'url
+ // { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
