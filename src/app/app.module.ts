@@ -8,13 +8,15 @@ import { AppComponent } from './components/base/app.component';
 import { PlanComponent } from './components/plan/plan.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { Exo1Component } from './components/exo1/exo1.component';
+import { RouteComponent } from './components/route/route.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlanComponent,
     PresentationComponent,
-    Exo1Component
+    Exo1Component,
+    RouteComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +24,6 @@ import { Exo1Component } from './components/exo1/exo1.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [RouteComponent]
 })
 export class AppModule { }
