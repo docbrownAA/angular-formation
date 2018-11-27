@@ -1,0 +1,94 @@
+<header>
+  <h2>Les Directives</h2>
+</header>
+
+<ul>
+  <li>Les directives structurelles: Elles ont pour but de modifier le DOM en ajoutant, enlevant ou replaçant un élément
+    du DOM
+  </li>
+  <li>Les directives attributs: Elles ont pour but de modifier l'apparence ou le comportement d'un élément.</li>
+</ul>
+
+<h3>ngIf</h3>
+
+<div class="my-3">
+  <button class="btn btn-outline-primary btn-sm" (click)="isVisible = !isVisible">
+    {{ isVisible ? 'Hide' : 'Show' }}
+  </button>
+</div>
+
+<p *ngIf="isVisible">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aliquid, asperiores assumenda beatae blanditiis culpa
+  deserunt eius fugit nobis nulla officiis omnis quisquam repudiandae sequi similique sint suscipit voluptate
+  voluptatum.
+</p>
+<p *ngIf="isVisible; else elseBlock">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aliquid, asperiores assumenda beatae blanditiis culpa
+  deserunt eius fugit nobis nulla officiis omnis quisquam repudiandae sequi similique sint suscipit voluptate
+  voluptatum.
+</p>
+
+<p *ngIf="isVisible; then thenBlock else otherelseBlock"></p>
+<ng-template #thenBlock>
+  <h4>Lorem ispum</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aliquid, asperiores assumenda beatae blanditiis culpa
+    deserunt eius fugit nobis nulla officiis omnis quisquam repudiandae sequi similique sint suscipit voluptate
+    voluptatum.</p>
+</ng-template>
+
+
+<ng-template #otherelseBlock>
+  <p>Lorem ipsum dolor sit amet, consectetur[...] suscipit voluptate voluptatum.</p>
+</ng-template>
+
+<h3>ngFor</h3>
+<ul>
+  <li
+    *ngFor="let value of ['a','b','c','d','e']; index as index; even as even;odd as odd; first as first; last as last">
+    <ul class="list-inline">
+      <li class="list-inline-item">Index = {{ index }}</li>
+      <li class="list-inline-item">Value = {{ value }}</li>
+      <li class="list-inline-item">Paire = {{ even }}</li>
+      <li class="list-inline-item">Impaire = {{ odd }}</li>
+      <li class="list-inline-item">First = {{ first }}</li>
+      <li class="list-inline-item">Last = {{ last }}</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>ngSwitch</h3>
+<div class="btn-group btn-group-sm my-2">
+  <button class="btn btn-outline-primary" (click)="mode = 'vertical'">Vertical</button>
+  <button class="btn btn-outline-primary" (click)="mode = 'horizontal'">Horizontal</button>
+</div>
+
+<div [ngSwitch]="mode">
+  <ul class="list-unstyled" *ngSwitchCase="'vertical'">
+    <li>Element 1</li>
+    <li>Element 2</li>
+    <li>Element 3</li>
+    <li>Element 4</li>
+    <li>Element 5</li>
+  </ul>
+  <ul class="list-inline" *ngSwitchCase="'horizontal'">
+    <li class="list-inline-item">Element 1</li>
+    <li class="list-inline-item">Element 2</li>
+    <li class="list-inline-item">Element 3</li>
+    <li class="list-inline-item">Element 4</li>
+    <li class="list-inline-item">Element 5</li>
+  </ul>
+
+  <p *ngSwitchDefault class="text-black-50">Aucune donnée enregistrée</p>
+</div>
+
+<hr />
+<h3>ngClass</h3>
+<button class="btn btn-outline-primary" (click)="hasClass = !hasClass">Toggle Class</button>
+<p class="lead" [ngClass]="{'text-success':hasClass, 'text-danger': !hasClass}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cum enim error facere fuga
+  illo ipsum, nulla officia possimus praesentium quae quibusdam quis saepe tempora unde veritatis voluptatem,
+  voluptates.</p>
+
+<h3>ngStyle</h3>
+<div class="btn-group my-3">
+  <button class="btn"></button>
+</div>

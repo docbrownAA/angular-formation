@@ -10,6 +10,8 @@ import { PresentationComponent } from './components/presentation/presentation.co
 import { Exo1Component } from './components/exo1/exo1.component';
 import { RouteComponent } from './components/route/route.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PipeComponent } from './components/pipe/pipe.component';
+import { DirectiveComponent } from './components/directive/directive.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     PresentationComponent,
     Exo1Component,
     RouteComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PipeComponent,
+    DirectiveComponent,
   ],
   imports: [
     BrowserModule,
