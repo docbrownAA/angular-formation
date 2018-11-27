@@ -1,0 +1,14 @@
+<header>
+  <h2>Locale</h2>
+</header>
+
+<div class="btn-group btn-group-sm mb-3">
+  <button class="btn btn-outline-dark" (click)="selectedLang('en')">English</button>
+  <button class="btn btn-outline-dark" (click)="selectedLang('fr')">Français</button>
+  <button class="btn btn-outline-dark" (click)="selectedLang('de')">Deutsch</button>
+  <button class="btn btn-outline-dark" (click)="selectedLang('ja')">Japan</button>
+</div>
+
+<p>{{ date  | date:'full':'':lang | titlecase}}</p>
+
+<p>{{9999.1234 | currency:'EUR':'symbol-narrow':'':lang }}</p>

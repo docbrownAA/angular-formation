@@ -8,6 +8,8 @@ import {PresentationComponent} from './components/presentation/presentation.comp
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {PipeComponent} from './components/pipe/pipe.component';
 import {DirectiveComponent} from './components/directive/directive.component';
+import {CustomPipeComponent} from './components/custom-pipe/custom-pipe.component';
+import {LocaleComponent} from './components/locale/locale.component';
 
 const routes: Routes = [
   { path: 'home', component: AppComponent},
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'presentation', component: PresentationComponent},
   { path: 'pipe', component: PipeComponent},
   { path: 'directive', component: DirectiveComponent},
+  { path: 'custom-pipe', component: CustomPipeComponent},
+  { path: 'locale', component: LocaleComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // full => recherche sur toute l'url, prefix: recherche suyr le début de l'url
   { path: '**', component: NotFoundComponent }
 ];

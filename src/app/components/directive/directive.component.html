@@ -90,5 +90,13 @@
 
 <h3>ngStyle</h3>
 <div class="btn-group my-3">
-  <button class="btn"></button>
+  <button class="btn btn-outline-primary" (click)="progress= '0%'">0%</button>
+  <button class="btn btn-outline-primary" (click)="progress= '25%'">25%</button>
+  <button class="btn btn-outline-primary" (click)="progress= '50%'">50%</button>
+  <button class="btn btn-outline-primary" (click)="progress= '75%'">75%</button>
+  <button class="btn btn-outline-primary" (click)="progress= '100%'">100%</button>
+</div>
+
+<div class="progress">
+  <div class="progress-bar" role="progressbar" [style.width]="progress" [attr.aria-valuenow]="progress"></div> <!--[ngStyle]="{width: progress}"--> <!--[style.width]="progress"-->
 </div>
