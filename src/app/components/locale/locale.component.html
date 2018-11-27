@@ -3,12 +3,19 @@
 </header>
 
 <div class="btn-group btn-group-sm mb-3">
-  <button class="btn btn-outline-dark" (click)="selectedLang('en')">English</button>
-  <button class="btn btn-outline-dark" (click)="selectedLang('fr')">Français</button>
-  <button class="btn btn-outline-dark" (click)="selectedLang('de')">Deutsch</button>
-  <button class="btn btn-outline-dark" (click)="selectedLang('ja')">Japan</button>
+  <button class="btn btn-outline-dark" [ngClass]="{'active':lang == 'en'}" (click)="selectedLang('en')">English</button>
+  <button class="btn btn-outline-dark" [ngClass]="{'active':lang == 'fr'}" (click)="selectedLang('fr')">Français</button>
+  <button class="btn btn-outline-dark" [ngClass]="{'active':lang == 'de'}" (click)="selectedLang('de')">Deutsch</button>
+  <button class="btn btn-outline-dark" [ngClass]="{'active':lang == 'ja'}" (click)="selectedLang('ja')">Japan</button>
+</div>
+<p>{{ date  | date:'full':'':lang | titlecase}}</p>
+<hr />
+<div class="btn-group btn-group-sm mb-3">
+  <button class="btn btn-outline-dark" [ngClass]="{'active':devise == 'EUR'}" (click)="selectedCurrency('EUR')">Euro</button>
+  <button class="btn btn-outline-dark" [ngClass]="{'active':devise == 'USD'}" (click)="selectedCurrency('USD')">Dollar US</button>
+  <button class="btn btn-outline-dark" [ngClass]="{'active':devise == 'JPY'}" (click)="selectedCurrency('JPY')">Yen Japonais</button>
 </div>
 
-<p>{{ date  | date:'full':'':lang | titlecase}}</p>
 
-<p>{{9999.1234 | currency:'EUR':'symbol-narrow':'':lang }}</p>
+
+<p>{{9999.1234 | currency:devise:'symbol-narrow':'':lang }}</p>

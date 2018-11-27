@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,7 @@ import { PipeComponent } from './components/pipe/pipe.component';
 import { DirectiveComponent } from './components/directive/directive.component';
 import { CustomPipeComponent } from './components/custom-pipe/custom-pipe.component';
 import { LocaleComponent } from './components/locale/locale.component';
+import { PowerPipe } from './pipes/power/power.pipe';
 
 @NgModule({
   declarations: [
@@ -35,13 +36,16 @@ import { LocaleComponent } from './components/locale/locale.component';
     DirectiveComponent,
     CustomPipeComponent,
     LocaleComponent,
+    PowerPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr'}
+  ],
   bootstrap: [RouteComponent]
 })
 export class AppModule { }
