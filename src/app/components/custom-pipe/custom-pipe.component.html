@@ -6,6 +6,6 @@
 <p>2^8 x 4 = {{ 2 | power:8:4}}</p>
 
 <h3>Pipelindrome</h3>
-<p>Palindrome: {{ texte | pipelindrome}}</p>
+<p>Palindrome: {{ texte.value | pipelindrome}}</p>
 
-<input type="text" [(ngModel)]="texte" />
+<input type="text" #texte placeholder="Entreé un palindrome" (keyup)="0" />
