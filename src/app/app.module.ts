@@ -9,6 +9,7 @@ import { PlanComponent } from './components/plan/plan.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { Exo1Component } from './components/exo1/exo1.component';
 import { RouteComponent } from './components/route/route.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RouteComponent } from './components/route/route.component';
     PlanComponent,
     PresentationComponent,
     Exo1Component,
-    RouteComponent
+    RouteComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
