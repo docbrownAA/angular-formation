@@ -23,6 +23,7 @@ import { DirectiveComponent } from './components/directive/directive.component';
 import { CustomPipeComponent } from './components/custom-pipe/custom-pipe.component';
 import { LocaleComponent } from './components/locale/locale.component';
 import { PowerPipe } from './pipes/power/power.pipe';
+import { PipelindromePipe } from './pipes/pipelindrome/pipelindrome.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { PowerPipe } from './pipes/power/power.pipe';
     CustomPipeComponent,
     LocaleComponent,
     PowerPipe,
+    PipelindromePipe,
   ],
   imports: [
     BrowserModule,
