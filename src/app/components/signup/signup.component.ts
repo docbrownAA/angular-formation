@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {CustomValidators} from '../../validators/custom-validators';
 
 @Component({
   selector: 'app-signup',
@@ -21,11 +22,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     // FormControl(default value, [validators], [Asynchronous Validators])
-    this.email = new FormControl(null, [Validators.required]);
+    this.email = new FormControl(null, [Validators.required, CustomValidators.email()]);
     this.password = new FormControl(null, [Validators.required,
       Validators.minLength(this.passwordMinLenght)]);
     this.term = new FormControl(false, [Validators.requiredTrue]);
-    this.confirm = new FormControl(null, [Validators.required]);
+    this.confirm = new FormControl(null, [Validators.required , CustomValidators.verif(this.password)]);
     this.form = this.fb.group(
       {
         email: this.email,
@@ -39,6 +40,9 @@ export class SignupComponent implements OnInit {
     if (this.email.touched) {
       if (this.email.hasError('required')) {
         return 'L\'email est obligatoire';
+      }
+      if (this.email.hasError('error_email')) {
+        return 'le format de l\'email est incorrect';
       }
     }
     return false;
@@ -61,6 +65,9 @@ export class SignupComponent implements OnInit {
       if (this.confirm.hasError('required')) {
         return 'La confirmation est obligatoire';
       }
+      if (this.confirm.hasError('error_verif')) {
+        return 'La confirmation doit être identique au mot de passe';
+      }
     }
     return false;
   }
@@ -75,6 +82,7 @@ export class SignupComponent implements OnInit {
   }
 
   public signup(): void {
+
     console.log(this.form.valid);
     if (this.form.valid) {
       this.form.reset();
