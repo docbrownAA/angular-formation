@@ -5,28 +5,46 @@
 <section class="row">
   <aside class="col-4">
     <div class="list-group">
-      <button class="list-group-item" *ngFor="let product of products">
+      <button class="list-group-item" *ngFor="let product of products" (click)="reloadProduct(product)">
         {{product.name}} @ {{product.price | currency:'EUR':'symbol-narrow'}}
       </button>
     </div>
   </aside>
   <article class="col-8">
-    <form (submit)="ajouterProduit()">
+    <form (submit)="(productForm.valid)? ajouterProduit() :0; (productForm.valid)? productForm.reset() :0;"  #productForm="ngForm">
       <div class="form-group row">
         <label class="col-2 col-form-label">Name:</label>
         <div class="col-10">
-          <input type="text" class="form-control" [(ngModel)]="product.name" placeholder="Name ..." name="name"/>
+          <input type="text"
+                 class="form-control"
+                 [(ngModel)]="product.name"
+                 placeholder="Name ..."
+                 name="name"
+                 required
+                 #name="ngModel"
+          />
+          <p *ngIf="!name.pristine && name.getError('required')">Name required</p>
         </div>
       </div>
     <div class="form-group row">
         <label class="col-2 col-form-label">Prix:</label>
         <div class="col-10">
-          <input type="text" class="form-control" [(ngModel)]="product.price" placeholder="Prix" name="price"/>
+          <input type="number"
+                 class="form-control"
+                 [(ngModel)]="product.price"
+                 placeholder="Prix"
+                 name="price"
+                 required
+                 #price="ngModel"
+                 pattern="[0-9]+(\.[0-9]+)?"
+          />
+      <p *ngIf="!price.pristine && (price.getError('required'))">Prix requis</p>
+      <p *ngIf="!price.pristine && (price.getError('pattern'))">Format invalid</p>
         </div>
       </div>
     <div class="form-group row">
         <div class="col-10">
-          <input type="submit" name="send" class="btn btn-outline-primary" value="Ajouter"/>
+          <input type="submit" name="send" class="btn btn-outline-primary" [value]="btn"/>
         </div>
       </div>
     </form>
