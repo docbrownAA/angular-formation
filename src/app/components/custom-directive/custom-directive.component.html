@@ -1,3 +1,21 @@
 <header>
   <h2>Directives personnalisées</h2>
 </header>
+<p appHighlight>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  Ab, aspernatur atque, culpa cupiditate ducimus earum laborum
+  nostrum numquam officia quasi ratione sequi temporibus
+  voluptates. Est ipsam placeat quaerat rem voluptatum?
+</p>
+<p [appHighlight]="'red'"> <!-- si on veut passer un paramètre à une directive, il faut utiliser les []-->
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  Ab, aspernatur atque, culpa cupiditate ducimus earum laborum
+  nostrum numquam officia quasi ratione sequi temporibus
+  voluptates. Est ipsam placeat quaerat rem voluptatum?
+</p>
+<p [appHighlight]="'black'" color="white"> <!-- si on veut passer un paramètre à une directive, il faut utiliser les []-->
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  Ab, aspernatur atque, culpa cupiditate ducimus earum laborum
+  nostrum numquam officia quasi ratione sequi temporibus
+  voluptates. Est ipsam placeat quaerat rem voluptatum?
+</p>

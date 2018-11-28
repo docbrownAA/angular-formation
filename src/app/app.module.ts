@@ -26,6 +26,7 @@ import { PowerPipe } from './pipes/power/power.pipe';
 import { PipelindromePipe } from './pipes/pipelindrome/pipelindrome.pipe';
 import { CustomDirectiveComponent } from './components/custom-directive/custom-directive.component';
 import { HighlightDirective } from './directives/highLight/highlight.directive';
+import { FormulaireComponent } from './components/formulaire/formulaire.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { HighlightDirective } from './directives/highLight/highlight.directive';
     PipelindromePipe,
     CustomDirectiveComponent,
     HighlightDirective,
+    FormulaireComponent,
   ],
   imports: [
     BrowserModule,

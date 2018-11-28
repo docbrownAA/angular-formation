@@ -11,6 +11,7 @@ import {DirectiveComponent} from './components/directive/directive.component';
 import {CustomPipeComponent} from './components/custom-pipe/custom-pipe.component';
 import {LocaleComponent} from './components/locale/locale.component';
 import {CustomDirectiveComponent} from './components/custom-directive/custom-directive.component';
+import {FormulaireComponent} from './components/formulaire/formulaire.component';
 
 const routes: Routes = [
   { path: 'home', component: AppComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'directive', component: DirectiveComponent},
   { path: 'custom-pipe', component: CustomPipeComponent},
   { path: 'locale', component: LocaleComponent},
+  { path: 'formulaire', component: FormulaireComponent},
   { path: 'custom-directive', component: CustomDirectiveComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // full => recherche sur toute l'url, prefix: recherche suyr le début de l'url
   { path: '**', component: NotFoundComponent }
