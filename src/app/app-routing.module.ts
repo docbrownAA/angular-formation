@@ -14,6 +14,11 @@ import {CustomDirectiveComponent} from './components/custom-directive/custom-dir
 import {FormulaireComponent} from './components/formulaire/formulaire.component';
 import {EnumComponent} from './components/enum/enum.component';
 import {SignupComponent} from './components/signup/signup.component';
+import {ServiceComponent} from './components/service/service.component';
+import {PromobseComponent} from './components/promobse/promobse.component';
+import {ParametersComponent} from './components/parameters/parameters.component';
+import {SecureRouteGuard} from './guard/SecureRoute/secure-route.guard';
+import {AuthComponent} from './components/auth/auth.component';
 
 const routes: Routes = [
   { path: 'home', component: AppComponent},
@@ -28,6 +33,16 @@ const routes: Routes = [
   { path: 'enum', component: EnumComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'custom-directive', component: CustomDirectiveComponent},
+  { path: 'promobse', component: PromobseComponent},
+  { path: 'auth', component: AuthComponent},
+  { path: 'parameters', component: ParametersComponent},
+  {
+    path: 'parameters/:name',
+    component: ParametersComponent,
+    data: {'value': 'Hello World !'},
+    canActivate: [SecureRouteGuard]
+  },
+  { path: 'service', component: ServiceComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // full => recherche sur toute l'url, prefix: recherche suyr le début de l'url
   { path: '**', component: NotFoundComponent }
 ];

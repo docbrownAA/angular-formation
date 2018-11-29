@@ -32,6 +32,7 @@ export class FormulaireComponent implements OnInit {
       prod.name = this.product.name;
       prod.price = this.product.price;
     }
+
     this.btn = 'Ajouter';
 
     this.product = new Product();

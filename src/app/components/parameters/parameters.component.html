@@ -1,0 +1,27 @@
+<header>
+  <h2>Parameters</h2>
+</header>
+
+<nav>
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/parameters/jean">Jean</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/parameters', 'sophie']">Sophie</a>
+    </li>
+  </ul>
+</nav>
+
+<p *ngIf="!name; else information">
+  Pour connaitre la relation qui esxiste entre Jean et Sophie sur leur nom !
+</p>
+
+<ng-template #information>
+
+  <button class="btn btn-outline-secondary" (click)="goBack()">&lt; &lt; Retour</button>
+  <div [ngSwitch]="name">
+    <p *ngSwitchCase="'jean'">Jean est un collègue travail de Sophie et il la trouve vraiment sympa</p>
+    <p *ngSwitchCase="'sophie'">Sophie est secrètement amoureuse de son collègue Jean !!!</p>
+  </div>
+</ng-template>

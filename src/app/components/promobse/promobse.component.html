@@ -1,0 +1,38 @@
+<header>
+  <h2>Promise - Observer - async/await</h2>
+</header>
+<section class="row">
+  <article class="col">
+    <h3>Promise</h3>
+
+    <button class="btn btn-outline-primary" (click)="getAsyncNumberAndRandTime()">Synchroniser</button>
+
+    <p class="my-2 text-info">{{ wait }}</p>
+    <div class="alert-warning" *ngIf="error">{{ error }}</div>
+
+    <ul class="list-unstyled">
+      <li>{{ duration }}</li>
+      <li *ngFor="let number of numbers">{{ number }}</li>
+    </ul>
+  </article>
+
+  <article class="col">
+    <h3>Observer</h3>
+    <button class="btn btn-outline-primary" (click)="getMutliNumber()">Synchroniser</button>
+    <p class="my-2 text-info" *ngIf="message">{{ message }}</p>
+
+    <ul class="list-unstyled">
+      <li>{{ duration }}</li>
+      <li *ngFor="let number of obsNumbers">{{ number }}</li>
+    </ul>
+
+  </article>
+
+  <article>
+    <h3>Async/Await</h3>
+    <button class="btn btn-outline-success" (click)="getAsyncFunctionOK()">Async</button>
+    <button class="btn btn-outline-danger" (click)="getAsyncFunctionKO()">Async KO</button>
+    <button class="btn btn-outline-danger" (click)="somme()">Somme</button>
+    <p class="text-info">{{num1}} + {{num2}} = {{resSomme}}</p>
+  </article>
+</section>

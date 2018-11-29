@@ -33,4 +33,8 @@ export class Product {
   set price(value: number) {
     this._price = value;
   }
+
+  public toString(): string {
+    return `Product[name= ${this.name}; price= ${this.price}] `;
+  }
 }
