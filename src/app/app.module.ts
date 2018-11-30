@@ -33,7 +33,9 @@ import {SignupComponent} from './components/signup/signup.component';
 import {ServiceComponent} from './components/service/service.component';
 import {PromobseComponent} from './components/promobse/promobse.component';
 import {ParametersComponent} from './components/parameters/parameters.component';
-import { AuthComponent } from './components/auth/auth.component';
+import {AuthComponent} from './components/auth/auth.component';
+import {HttpComponent} from './components/http/http.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -57,17 +59,19 @@ import { AuthComponent } from './components/auth/auth.component';
     ServiceComponent,
     PromobseComponent,
     ParametersComponent,
-    AuthComponent
+    AuthComponent,
+    HttpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr'},
-    {provide: 'SecureRouteGuard', useValue: () => true}
+    {provide: 'SecureChildRouteGuard', useValue: () => false}
   ],
   bootstrap: [RouteComponent]
 })

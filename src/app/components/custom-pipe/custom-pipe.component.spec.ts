@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomPipeComponent } from './custom-pipe.component';
+import {PowerPipe} from '../../pipes/power/power.pipe';
+import {PipelindromePipe} from '../../pipes/pipelindrome/pipelindrome.pipe';
 
 describe('CustomPipeComponent', () => {
   let component: CustomPipeComponent;
@@ -8,8 +10,7 @@ describe('CustomPipeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomPipeComponent ]
-    })
+      declarations: [ CustomPipeComponent, PowerPipe, PipelindromePipe ]   })
     .compileComponents();
   }));
 

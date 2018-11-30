@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomDirectiveComponent } from './custom-directive.component';
+import {CustomDirectiveComponent} from './custom-directive.component';
+import {HighlightDirective} from '../../directives/highLight/highlight.directive';
 
 describe('CustomDirectiveComponent', () => {
   let component: CustomDirectiveComponent;
@@ -8,9 +9,9 @@ describe('CustomDirectiveComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomDirectiveComponent ]
+      declarations: [CustomDirectiveComponent, HighlightDirective]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

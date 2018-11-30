@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
 import {AppComponent} from './components/base/app.component';
 import {Exo1Component} from './components/exo1/exo1.component';
@@ -19,36 +19,46 @@ import {PromobseComponent} from './components/promobse/promobse.component';
 import {ParametersComponent} from './components/parameters/parameters.component';
 import {SecureRouteGuard} from './guard/SecureRoute/secure-route.guard';
 import {AuthComponent} from './components/auth/auth.component';
+import {HttpComponent} from './components/http/http.component';
 
 const routes: Routes = [
-  { path: 'home', component: AppComponent},
-  { path: 'exercice1', component: Exo1Component},
-  { path: 'plan', component: PlanComponent},
-  { path: 'presentation', component: PresentationComponent},
-  { path: 'pipe', component: PipeComponent},
-  { path: 'directive', component: DirectiveComponent},
-  { path: 'custom-pipe', component: CustomPipeComponent},
-  { path: 'locale', component: LocaleComponent},
-  { path: 'formulaire', component: FormulaireComponent},
-  { path: 'enum', component: EnumComponent},
-  { path: 'signup', component: SignupComponent},
-  { path: 'custom-directive', component: CustomDirectiveComponent},
-  { path: 'promobse', component: PromobseComponent},
-  { path: 'auth', component: AuthComponent},
-  { path: 'parameters', component: ParametersComponent},
+  {path: 'home', component: AppComponent},
+  {
+    path: 'exercice1', component: Exo1Component,
+    canActivate: [SecureRouteGuard]
+  },
+  {path: 'plan', component: PlanComponent},
+  {path: 'presentation', component: PresentationComponent},
+  {path: 'pipe', component: PipeComponent},
+  {path: 'directive', component: DirectiveComponent},
+  {path: 'custom-pipe', component: CustomPipeComponent},
+  {path: 'locale', component: LocaleComponent},
+  {path: 'formulaire', component: FormulaireComponent},
+  {path: 'enum', component: EnumComponent},
+  {path: 'signup', component: SignupComponent},
+  {path: 'custom-directive', component: CustomDirectiveComponent},
+  {path: 'promobse', component: PromobseComponent},
+  {path: 'auth', component: AuthComponent},
+  {path: 'parameters', component: ParametersComponent},
+  {path: 'http', component: HttpComponent},
   {
     path: 'parameters/:name',
     component: ParametersComponent,
     data: {'value': 'Hello World !'},
-    canActivate: [SecureRouteGuard]
+    canActivate: [SecureRouteGuard],
+    canActivateChild: ['SecureChildRouteGuard'],
+    children: [
+      {path: ':lastname', component: ParametersComponent}
+    ]
   },
-  { path: 'service', component: ServiceComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // full => recherche sur toute l'url, prefix: recherche suyr le début de l'url
-  { path: '**', component: NotFoundComponent }
+  {path: 'service', component: ServiceComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'}, // full => recherche sur toute l'url, prefix: recherche suyr le début de l'url
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
